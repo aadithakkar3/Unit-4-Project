@@ -36,9 +36,6 @@ public class Main {
             }
         }
         max += jacks;
-//        System.out.println(jacks);
-//        System.out.println(max);
-//        System.out.println(max2);
         if (max == 5 && max2 == 0) {
             return "Five of a Kind";
         } else if (max == 4 && max2 == 1) {
@@ -87,8 +84,6 @@ public class Main {
                     rank++;
                 }
             }
-//            System.out.println(rank);
-//            System.out.println(hand.getBid());
             total += rank * hand.getBid();
         }
         return total;
@@ -111,18 +106,23 @@ public class Main {
     }
 
     public static void part2(Hand[] hands) {
-        printAmounts(hands, false);
-        System.out.println(bidTotal(hands, false));
+        part1(hands);
+        System.out.println("Total Bid Value: " + bidTotal(hands, false));
     }
 
     public static void part3(Hand[] hands) {
-        printAmounts(hands, true);
-        System.out.println(bidTotal(hands, true));
+        part2(hands);
+        System.out.println("Total Bid Value with Jacks Wild: " + bidTotal(hands, true));
     }
 
     public static void main(String[] args) {
         Hand[] data = fileData("src/data");
+        System.out.println("PART 1:");
         part1(data);
+        System.out.println("\nPART 2:");
+        part2(data);
+        System.out.println("\nPART 3:");
+        part3(data);
     }
 
     public static Hand[] fileData(String fileName) {
