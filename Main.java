@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -18,7 +17,7 @@ public class Main {
     }
 
     public static String handType(String[] hand, boolean wildJacks) {
-        int[] frequencies = new int[13];
+        int[] frequencies = new int[cardTypes.length];
         int max = 0;
         int max2 = 0;
         int jacks = 0;
