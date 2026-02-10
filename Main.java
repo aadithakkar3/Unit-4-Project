@@ -1,10 +1,12 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static String[] cardTypes = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+    static String[] jackCardTypes = {"Jack", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Queen", "King", "Ace"};
     static String[] handTypes = {"Five of a Kind", "Four of a Kind", "Full House", "Three of a Kind", "Two Pair", "One Pair", "High Card"};
 
     public static int indexOf(String el, String[] arr) {
@@ -61,9 +63,10 @@ public class Main {
         } else if (type2 < type1) {
             return false;
         }
+        String[] cardRank = wildJacks ? jackCardTypes : cardTypes;
         for (int i = 0; i < cards1.length; i++) {
-            int card1 = indexOf(cards1[i], cardTypes);
-            int card2 = indexOf(cards2[i], cardTypes);
+            int card1 = indexOf(cards1[i], cardRank);
+            int card2 = indexOf(cards2[i], cardRank);
             if (card1 > card2) {
                 return true;
             } else if (card2 > card1) {
@@ -122,6 +125,7 @@ public class Main {
         part2(data);
         System.out.println("\nPART 3:");
         part3(data);
+        // printAmounts(data, true);
     }
 
     public static Hand[] fileData(String fileName) {
