@@ -1,6 +1,6 @@
 public class Hand {
-    private String[] cards;
-    private int bid;
+    private final String[] cards;
+    private final int bid;
 
     public Hand(String line) {
         cards = (line.split("\\|")[0]).split(",");

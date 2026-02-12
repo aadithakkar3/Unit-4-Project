@@ -23,11 +23,12 @@ public class Main {
         int max = 0;
         int max2 = 0;
         int jacks = 0;
+        int index;
         for (String card : hand) {
-            int index = indexOf(card, cardTypes);
             if (wildJacks && card.equals("Jack")) {
                 jacks++;
             } else {
+                index = indexOf(card, cardTypes);
                 frequencies[index] += 1;
                 if (frequencies[index] > max) {
                     max = frequencies[index];
